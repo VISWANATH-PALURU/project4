@@ -1,0 +1,3164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* part1 */
+    body {
+    overflow-x: hidden;
+    font-family: "Dosis", sans-serif;
+  }
+  
+  .page-content {
+    position: relative;
+  }
+  
+  .banner {
+    position: relative;
+    display: flex;
+    margin: 1.5%;
+    height: 90vh;
+    padding-right: 10%;
+    padding-left: 10%;
+    justify-content: center;
+    background-color: #c1c3cc;
+    background-image: linear-gradient(
+        76deg,
+        rgba(193, 195, 204, 0.83) 35%,
+        rgba(193, 195, 204, 0.28) 65%
+      ),
+      url("https://nuuk-e3eaa.firebaseapp.com/assets/img/slide-2.jpg");
+    background-position: 10px 10px, 50% 0%;
+    background-size: auto, cover;
+    background-position: center;
+    background-attachment: scroll, fixed;
+  }
+  
+  .navigation {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: auto;
+    width: 90%;
+    height: 15%;
+    margin-top: 2%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0%;
+    padding-left: 0%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+  }
+  
+  .brand-logo {
+    position: absolute;
+    display: flex;
+    height: 110px;
+    padding-right: 35px;
+    padding-left: 35px;
+    justify-content: center;
+  
+    align-items: center;
+  
+    background-color: #e47312;
+  }
+  
+  .features-wrapper {
+    position: absolute;
+    left: auto;
+    top: 375;
+    right: -5.6%;
+    bottom: -508px;
+  
+    display: flex;
+    width: 810px;
+    padding: 15px 100px 5px 50px;
+    background-color: #e47312;
+    background-image: linear-gradient(186deg, #e47312, #ff6361);
+  }
+  
+  .infos-flex {
+    z-index: 1;
+  
+    display: flex;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  
+    align-items: flex-start;
+  }
+  
+  .info-child {
+    display: flex;
+    padding-top: 10px;
+  
+    flex-direction: column;
+  
+    justify-content: center;
+  
+    align-items: center;
+  
+    flex: 1;
+  }
+  
+  .info-child.horizontal {
+    margin-bottom: 15px;
+    padding-top: 0px;
+  
+    flex-direction: row;
+  
+    justify-content: flex-start;
+  
+    align-items: flex-start;
+  }
+  
+  .info-image {
+    width: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .info-image.left {
+    width: 20px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+  }
+  
+  .phone-text {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .paragraph-white {
+    margin-bottom: -7px;
+    font-size: 15px;
+    color: hsla(0, 0%, 100%, 0.7);
+  }
+  
+  .paragraph-white.bigger {
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 300;
+  }
+  
+  .paragraph-white.bigger.normal {
+    font-weight: 400;
+  }
+  
+  .paragraph-white._100 {
+    color: #fff;
+  }
+  
+  .map-text {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    position: relative;
+    bottom: -10px;
+    right: -5px;
+    width: 100%;
+    height: 12px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .map-text:hover {
+    background-color: #e47312;
+    text-decoration: underline 3px #fff;
+  }
+  
+  .social-vertical {
+    position: absolute;
+    right: -62px;
+    top: 147px;
+    width: min-content;
+  
+    display: flex;
+    padding: 10px;
+  
+    flex-direction: column;
+    background-color: #0a1229;
+  }
+  
+  .social-vertical.horizontal {
+    position: absolute;
+    left: auto;
+    top: auto;
+    right: 10px;
+    bottom: 0%;
+    overflow: visible;
+  
+    flex-direction: column;
+    background-color: #e47312;
+  }
+  
+  .social-icon {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 40px;
+    height: 50px;
+    float: left;
+  
+    justify-content: center;
+  
+    align-items: center;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.14);
+  }
+  
+  .nav-menu {
+    font-size: small;
+    font-weight: 600;
+    position: absolute;
+    right: 200px;
+    display: inline-flex;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-end;
+  
+    height: 13vh;
+    width: 70%;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    margin: 20px;
+  }
+  
+  .nav-text {
+    color: black;
+    margin: 0px;
+    text-transform: uppercase;
+  }
+  .nav-text:hover {
+    color: #e47312;
+    text-decoration: none;
+  }
+  
+  .dropdown-list {
+    display: none;
+  }
+  
+  .dropdown-toggle .nav-text {
+    margin-right: 20px;
+    margin-left: 12px;
+  }
+  
+  .dropdown-toggle .arrow-image {
+    position: absolute;
+    
+    right: -5px;
+    top: 35px;
+    width: 10px;
+    margin-left: 7px;
+    float: right;
+  }
+  
+  .nav-menu .dropdown:hover .dropdown-list {
+    display: block;
+    position: absolute;
+    min-width: 150px;
+    background-color: #fff;
+    margin-top: 0px;
+    margin-right: 30px;
+    align-items: center;
+  }
+  
+  .dropdown-link {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    line-height: 1.8;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #717177;
+  }
+  .dropdown-list {
+    z-index: 1;
+  }
+  .dropdown-list .dropdown-link:hover {
+    color: #e47312;
+    background-color: lightgray;
+     display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+  
+  .info-wrapper-free-quote {
+    height: 3.3vh;
+    margin-left: 20px;
+    padding: 40px 30px 35px;
+    background-color: #e47312;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: absolute;
+    right: -203px;
+    top: -2px;
+  }
+  .info-wrapper-free-quote:hover {
+    background-color: #e98a38;
+  }
+  
+  .title-banner {
+   width: 40%;
+    position: absolute;
+    top: 200px;
+    left: 5%;
+    height: 50vh;
+  }
+  
+  .title-banner .top-title {
+    height: max-content;
+    position: relative;
+    z-index: 2;
+    margin-top: -75px;
+    margin-left: -50px;
+    margin-bottom: 15px;
+    font-size: 55px;
+    line-height: 60px;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  
+  .title-bottom-paragraph {
+    margin-top: 2px;
+    margin-left: -42px;
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: hsla(0, 0%, 100%, 0.7);
+  }
+  
+  .title-banner .Free-quote-button {
+    color: #fff;
+    text-decoration: none;
+    padding: 21px 20px;
+    margin-left: -40px;
+    margin-top: px;
+    display: inline;
+    width: min-content;
+    border-radius: 0px;
+    background-color: #e47312;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .title-banner .Free-quote-button:hover {
+    background-color: #e98a38;
+  }
+  .hamburger-line {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    width: 50%;
+    height: 2px;
+    background-color: #000;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.hamburger-line:last-of-type {
+    transform: translate(-50%, 8px);
+}
+  /* part2 */
+  .section2 {
+    padding-top: 15%;
+    padding-bottom: 5%;
+  }
+  
+  .container2 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .top-title-wrapper {
+    margin-left: 0%;
+    margin-right: 3%;
+    margin-bottom: 5%;
+    padding-left: 40px;
+    padding-right: 50px;
+    align-items: center;
+  }
+  
+  .service-top-title {
+    font-size: 45px;
+    line-height: 30px;
+    font-weight: 600;
+    z-index: 1;
+  }
+  
+  .view-service-icon {
+    text-decoration: none;
+    color: #c1c3cc;
+    font-size: medium;
+  }
+  .view-service-icon:hover {
+    text-decoration: underline 3px #e47312;
+  }
+  
+  .top-title-absolute {
+    position: absolute;
+    top: 23.5%;
+    left: 3%;
+    color: rgba(241, 241, 247, 0.4);
+    font-size: 120px;
+    letter-spacing: 11px;
+    text-transform: uppercase;
+  }
+  
+  .w-dyn-list {
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+  }
+  .service-content {
+    width: 20%;
+  }
+  
+  .service-title {
+    margin-top: 0px;
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .paratext{
+    color: #919197;
+  }
+  .service-bottom-title {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #c1c3cc;
+    font-size: small;
+    font-weight: 600;
+  }
+  .service-bottom-title:hover {
+    text-decoration: underline 4px #e47312;
+  }
+  /* part3 */
+  .section-3 {
+    margin: 5%;
+    margin-top: 12%;
+  }
+  .totalarea {
+    display: flex;
+  
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  
+  .image {
+    width: 100%;
+    margin-right: 2%;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+  }
+        .content {
+    width: 100%;
+    margin-left: 2%;
+    text-align: left;
+    margin-top: -2%;
+  }
+  
+  .position {
+    padding-left: 5%;
+    padding-right: 10%;
+  }
+  .place {
+    margin-left: 0%;
+    margin-right: 3%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 50px;
+    align-items: center;
+  }
+  .title {
+    height: max-content;
+    position: relative;
+    z-index: 2;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-size: 37px;
+    line-height: 60px;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    color: black;
+  }
+  .about {
+    margin-top: -0.1%;
+    position: absolute;
+    right: 17%;
+    z-index: 1;
+    color: rgba(241, 241, 247, 0.4);
+    font-size: 100px;
+    letter-spacing: 11px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+  }
+  .text {
+    font-size: 18px;
+    color: #919197;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+  .bottombutton a {
+    text-decoration: none;
+    color: #919197;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .bottombutton a:hover {
+    text-decoration: underline 2px #e47312;
+  }
+  /* part4 */
+  .section-4 {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  .width {
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+  }
+  .numtext1 {
+    width: 12%;
+    color: #919197;
+  }
+  .numtext2 {
+    margin-bottom: 10px;
+    color: #e47312;
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 500;
+    
+  }
+  /* part5 */
+  .section-gray {
+    background-color: #f7f8fc;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  
+  .our_work-top_title {
+    display: flex;
+    justify-content: space-between;
+  
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  .our-work {
+    text-transform: uppercase;
+    color: black;
+    line-height: 2;
+    letter-spacing: 2px;
+    font-size: 35px;
+    font-weight: 650;
+    margin-left: 2.5%;
+    z-index: 2;
+  }
+  .our-work-bottom-title {
+    text-decoration: none;
+    color: #919197;
+    font-weight: 500;
+    margin-right: 5%;
+    text-transform: uppercase;
+  }
+  
+  .our-work-bottom-title:hover {
+    text-decoration: underline 2px #e47312;
+  }
+  
+  .top-title-abosolute-project {
+    position: absolute;
+    top: 79.2%;
+    text-transform: uppercase;
+    z-index: 1;
+    color: rgba(241, 241, 247, 0.75);
+    font-size: 100px;
+    letter-spacing: 11px;
+    font-family: sans-serif;
+    margin-top: -11%;
+    margin-left: -7%;
+  }
+  
+  .w-dyn-items {
+    width: 100%;
+    padding-left: 3%;
+    margin-top: -10%;
+  }
+  
+  .project-content-id {
+    width: 31%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 2% ;
+    float: left;
+  }
+  
+  .project-content-id .project-img {
+    width: 100%;
+    height: fit-content;
+  }
+  .project-img {
+    margin-bottom: -350px;
+  }
+  .project-overlay {
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    height: 289px;
+    width: 325px;
+    justify-content: center;
+    top: 57px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+    opacity: 0;
+}
+.view{
+  text-decoration: none;
+}
+  .project-circle {
+    text-decoration: none;
+    display: flex;
+    width: 100px;
+    height: 100px;
+    padding-right: 11px;
+    padding-left: 11px;
+    font-size: 20px;
+  
+    justify-content: center;
+  
+    align-items: center;
+    border-radius: 100%;
+    background-image: linear-gradient(59deg, #ff6361, #e47312);
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+  
+    text-transform: uppercase;
+  }
+  
+  .project-content-id:hover .project-overlay,
+  .project-content-id:hover .project-circle {
+    opacity: 1;
+  }
+  /* part6 */
+  .section-5 {
+    padding-top: 7%;
+    padding-bottom: 7%;
+    background-color: #e47312;
+    background-image: linear-gradient(72deg, #e47312, rgba(255, 99, 97, 0.78)),
+      url("https://nuuk-e3eaa.firebaseapp.com/assets/img/banner-2.jpg");
+    background-position: 0px 0px, 50% 50%;
+    background-repeat: repeat, no-repeat;
+    background-attachment: scroll, fixed;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 10%;
+  }
+  
+  .textarea {
+    height: max-content;
+  
+    text-align: center;
+  }
+  
+  .header {
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: -5px;
+    font-size: 45px;
+    letter-spacing: 2px;
+  }
+  .para {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.9;
+    letter-spacing: 2px;
+    padding-bottom: 25px;
+  }
+  .freequote {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .freequote:hover {
+    text-decoration: underline 2px white;
+  }
+  /* part7 */
+  .section6 {
+    padding-top: 10%;
+    background-color: #f7f8fc;
+  
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  
+  .prof-top-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4%;
+  }
+  
+  .Prof-top-title {
+    text-transform: uppercase;
+    margin-left: 5%;
+    font-size: 45px;
+    font-weight: 550;
+    z-index: 1;
+  }
+  .Prof-top-title-bottom {
+    text-decoration: none;
+    color: #bdbdc9;
+    font-size: small;
+    margin-right: 7%;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  .Prof-top-title-bottom:hover {
+    text-decoration: underline 2px #e47312;
+  }
+  
+  .prof-top-title-absolute {
+    position: absolute;
+    top: 517%;
+    left: 4%;
+    color: rgba(241, 241, 247, 0.8);
+    font-size: 100px;
+    letter-spacing: 11px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+  }
+  .prof-row {
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .team-wrapper {
+    width: 20%;
+  }
+  .team-photo {
+    min-height: 300px;
+    background-image: url("https://nuuk-e3eaa.firebaseapp.com/assets/img/team-1.jpg");
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .team-photo2 {
+    min-height: 300px;
+    background-image: url("https://nuuk-e3eaa.firebaseapp.com/assets/img/team-2.jpg");
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .team-photo3 {
+    min-height: 300px;
+    background-image: url("https://nuuk-e3eaa.firebaseapp.com/assets/img/team-3.jpg");
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .team-photo4 {
+    min-height: 300px;
+    background-image: url("https://nuuk-e3eaa.firebaseapp.com/assets/img/team-4.jpg");
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .team-content {
+    padding: 29px 90px 29px 29px;
+    background-color: #fff;
+  }
+  
+  .service-team-title {
+    margin-top: 0px;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .job-title {
+    margin-bottom: 0px;
+    color: #bdbdc9;
+    font-size: 16px;
+  }
+  
+  .team-social-vertical {
+    position: relative;
+    left: -101%;
+    right: 0%;
+    bottom: -26.3%;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #e47312;
+  }
+  .team-social-icon {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    float: left;
+  
+    justify-content: center;
+  
+    align-items: center;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.14);
+  }
+  
+  /* _____________________________________________________ */
+  .testimonial-container {
+    height: fit-content;
+    margin-top: -240px;
+    height: 140vh;
+  }
+  .testimonial-row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .testimonial-col-1 {
+    width: fit-content;
+    text-align: left;
+    padding-left: 10%;
+  }
+  
+  .testimonial-top-title {
+    position: relative;
+    z-index: 2;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 45px;
+    font-weight: 550;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .testimonial-absolute {
+    position: absolute;
+    top: 675%;
+    left: 7%;
+    z-index: 1;
+    color: rgba(241, 241, 247, 0.8);
+    font-size: 100px;
+    letter-spacing: 11px;
+    text-transform: uppercase;
+  }
+  #p {
+    margin-bottom: 10px;
+    font-family: Dosis, sans-serif;
+    color: #919197;
+    font-size: 17px;
+    line-height: 25px;
+    padding-bottom: 10%;
+  }
+  
+  .testimonial-bottom-title {
+    text-decoration: none;
+    color: #919197;
+    font-weight: 500;
+  }
+  
+  .testimonial-bottom-title:hover {
+    text-decoration: underline 2px #e47312;
+  }
+  
+  .testimonial-photo {
+    position: relative;
+  
+    display: flex;
+    width: 60px;
+    height: 60px;
+    margin: -115px auto 25px;
+  
+    justify-content: center;
+  
+    align-items: stretch;
+    border-radius: 100%;
+    background-image: linear-gradient(8deg, #ff6361, #e47312);
+    opacity: 1;
+    color: #fff;
+    font-size: 80px;
+    line-height: 80px;
+  }
+  
+  .text-block-2 {
+    padding-top: 12px;
+  }
+  
+  .testimonial-wrapper {
+    position: relative;
+    display: block;
+    width: 90%;
+    margin: 10px auto 61px;
+    padding: 80px 30px 26px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .testi-title {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .job-title {
+    margin-bottom: 0px;
+    color: #bdbdc9;
+    font-size: 16px;
+  }
+  .testimonial-paragraph {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    color: #919197;
+    width: fit-content;
+  }
+  
+  .t-col1 {
+    width: 30%;
+    margin-left: 15%;
+    margin-right: 0%;
+    position: relative;
+    top: 250px;
+  }
+  .t-col2 {
+    width: 30%;
+    float: right;
+    margin-right: 15%;
+    position: relative;
+    top: -273px;
+  }
+  .testimonial-col-2 {
+    height: fit-content;
+  }
+  /* part8 */
+  .section7 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .news-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8%;
+    padding-bottom: 0%;
+  }
+  
+  .news-top-title {
+    text-transform: uppercase;
+    margin-left: 5%;
+    font-size: 45px;
+    font-weight: 550;
+    z-index: 5;
+  }
+  
+  .news-title-absolute {
+    position: absolute; 
+    left: 3%;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: rgba(241, 241, 247, 0.4);
+    font-size: 120px;
+    letter-spacing: 11px;
+    margin-top: 30.5px;
+  }
+  .news-title-bottom {
+    text-decoration: none;
+    color: #bdbdc9;
+    font-size: 15px;
+    margin-right: 4%;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  .news-title-bottom:hover {
+    text-decoration: underline 2px #e47312;
+  }
+  
+  .blog-wrapper {
+    text-decoration: none;
+  }
+  
+  .news-row {
+    display: flex;
+  
+    justify-content: space-around;
+  }
+  .news-col {
+    width: 30%;
+    margin-top: -40px;
+  }
+  
+  #blog-img {
+    width: 100%;
+  }
+  
+  .meta-tag {
+    position: relative;
+    left: 79.5%;
+    top: 110px;
+    bottom: auto;
+  }
+  .meta-number {
+    display: flex;
+    width: 70px;
+    height: 70px;
+  
+    justify-content: center;
+  
+    align-items: center;
+    background-image: linear-gradient(45deg, #ff6361, #e47312);
+    color: #fff;
+    font-size: 26px;
+    font-weight: 400;
+  }
+  
+  .meta-month {
+    display: flex;
+    width: 70px;
+    height: 40px;
+  
+    justify-content: center;
+  
+    align-items: center;
+    background-color: #fff;
+    color: #9d9da5;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .blog-content {
+    width: fit-content;
+    margin-top: -5px;
+    padding: 25px 56px 25px 30px;
+    background-color: #e47312;
+    background-image: linear-gradient(158deg, #e47312, #ff6361);
+  }
+  .blog-top-title {
+    color: #fff;
+    margin-right: 60px;
+    text-transform: uppercase;
+    font-weight: 550;
+    font-size: 19px;
+  }
+  .paragraph-white{
+    color: hsla(0, 0%, 100%, 0.7);
+    font-size: 15px;
+  }
+  
+  .blog-bottom {
+    margin-top: 10%;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: underline 1px #919198;
+  }
+  
+  .blog-bottom:hover {
+    text-decoration: underline 2px #fff;
+  }
+  
+  .img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  /* part9 */
+  .section-logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    margin-top: 8%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-top: 3%;
+    border-radius: 5px;
+    padding-bottom: 3%;
+    background-image: linear-gradient(56deg, #e47312, #ff6361);
+  }
+  /* ______________________________________ */
+  .footer {
+    border-top: 1px solid #2f3038;
+    background-color: #0a1229;
+  
+    width: fit-content;
+    margin-right: 8%;
+    margin-left: 8%;
+    padding-top: 70px;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  
+  .footer-col1 {
+    width: 30%;
+  }
+  .footer-col2 {
+    width: 30%;
+  }
+  .footer-col3 {
+    width: 30%;
+  }
+  
+  .with-line {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .line {
+    position: relative;
+    left: 0%;
+    top: 0%;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 1px;
+    background-color: #ff6361;
+  }
+  
+  .footer-top-title {
+    margin-right: 25px;
+    flex: 0 0 auto;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+  
+  .paragraph-white-footer {
+    color: #fff;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+  
+  .footer-nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 550;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .w-dyn-list-footer {
+    height: 30vh;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  .item {
+    margin-top: 5%;
+    font-weight: 550;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+    font-weight: 550;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+  }
+  
+  .footer-nav-link:hover {
+    text-decoration: underline 2px #fff;
+  }
+  
+  .info-img {
+    position: relative;
+    left: -30px;
+    top: 32px;
+    width: 20px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+  }
+  
+  .footer-item {
+    text-decoration: none;
+    color: #fff;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+  .phone-text-footer {
+    margin-top: 15;
+    margin-bottom: 1%;
+    margin-left: 3%;
+    color: #fff;
+    font-weight: 550;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  
+  .paragraph-white-foot {
+    color: hsla(0, 0%, 100%, 0.7);
+    margin-top: 0%;
+    margin-bottom: 2%;
+    margin-left: 3%;
+    font-size: 15px;
+  }
+  
+  .footer-infochild {
+    margin-left: 10%;
+  }
+  
+  .footer-logo {
+    height: 25vh;
+  }
+  
+  .brand-logo-footer {
+    display: flex;
+    height: 110px;
+    width: 40px;
+    padding-right: 35px;
+    padding-left: 35px;
+    justify-content: center;
+    margin-top: 10%;
+    align-items: center;
+    background-color: #e47312;
+ 
+  }
+ /* mediascreen */
+ 
+ 
+ @media screen and (max-width: 400px) {
+  body{
+    width: 100%;
+  }
+  .banner {
+      position: absolute;
+      height: 500px;
+    margin-left: -2%;
+    width: 321px;
+    margin-top: -14px;
+    background-image: linear-gradient( 76deg, rgba(193, 195, 204, 0.83) 35%, rgba(193, 195, 204, 0.28) 65% ), url(https://nuuk-e3eaa.firebaseapp.com/assets/img/slide-2.jpg);
+    background-position: 10px 10px, 50% 0%;
+    background-size: auto, cover;
+    background-position: center;
+    background-attachment: scroll, local;
+}
+  
+  .menu-button {
+    height: 60px;
+    width: 100%;
+    background-color: white;
+    z-index: -1;
+    margin: 0;
+}
+  
+  .navigation {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: auto;
+    width: 102%;
+    height: 10%;
+    margin-top: 0%;
+    margin-right: auto;
+    margin-left: -2%;
+    padding-right: 0%;
+    padding-left: 0%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+  }
+  
+  .brand-logo {
+    position: absolute;
+    display: flex;
+    height: 60px;
+    padding-right: 10px;
+    padding-left: 16px;
+    justify-content: center;
+    align-items: center;
+    background-color: #e47312;
+    margin-left: 0%;
+    margin-top: 0%;
+  }
+  
+  .features-wrapper {
+    display: none;
+  }
+  
+  .infos-flex {
+    z-index: 1;
+  
+    display: flex;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  
+    align-items: flex-start;
+  }
+  
+  .info-child {
+    display: flex;
+    padding-top: 10px;
+  
+    flex-direction: column;
+  
+    justify-content: center;
+  
+    align-items: center;
+  
+    flex: 1;
+  }
+  
+  .info-child.horizontal {
+    margin-bottom: 15px;
+    padding-top: 0px;
+  
+    flex-direction: row;
+  
+    justify-content: flex-start;
+  
+    align-items: flex-start;
+  }
+  
+  .info-image {
+    width: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .info-image.left {
+    width: 20px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+  }
+  
+  .phone-text {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .paragraph-white {
+    margin-bottom: -7px;
+    font-size: 15px;
+    color: hsla(0, 0%, 100%, 0.7);
+  }
+  
+  .paragraph-white.bigger {
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 300;
+  }
+  
+  .paragraph-white.bigger.normal {
+    font-weight: 400;
+  }
+  
+  .paragraph-white._100 {
+    color: #fff;
+  }
+  
+  .map-text {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    position: relative;
+    bottom: -10px;
+    right: -5px;
+    width: 100%;
+    height: 12px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .map-text:hover {
+    background-color: #e47312;
+    text-decoration: underline 3px #fff;
+  }
+  
+  .social-vertical {
+    right: 0px;
+    top: 276px;
+  }
+  
+  .social-vertical.horizontal {
+    position: absolute;
+    left: auto;
+    top: auto;
+    right: 10px;
+    bottom: 0%;
+    overflow: visible;
+  
+    flex-direction: column;
+    background-color: #e47312;
+  }
+  
+  .social-icon {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 40px;
+    height: 50px;
+    float: left;
+  
+    justify-content: center;
+  
+    align-items: center;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.14);
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    margin: 20px;
+  }
+  
+  .nav-text {
+    color: black;
+    margin: 0px;
+    text-transform: uppercase;
+  }
+  .nav-text:hover {
+    color: #e47312;
+    text-decoration: none;
+  }
+  
+  .dropdown-list {
+    display: none;
+  }
+  
+  .dropdown-toggle .nav-text {
+    margin-right: 20px;
+    margin-left: 12px;
+  }
+  
+  .dropdown-toggle .arrow-image {
+    position: absolute;
+    
+    right: -5px;
+    top: 35px;
+    width: 10px;
+    margin-left: 7px;
+    float: right;
+  }
+  
+  .nav-menu .dropdown:hover .dropdown-list {
+    display: block;
+    position: absolute;
+    min-width: 150px;
+    background-color: #fff;
+    margin-top: 0px;
+    margin-right: 30px;
+    align-items: center;
+  }
+  
+  .dropdown-link {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    line-height: 1.8;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #717177;
+  }
+  .dropdown-list {
+    z-index: 1;
+  }
+  .dropdown-list .dropdown-link:hover {
+    color: #e47312;
+    background-color: lightgray;
+     display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+  
+  .info-wrapper-free-quote {
+    display: none;
+  }
+  .info-wrapper-free-quote:hover {
+    background-color: #e98a38;
+  }
+  
+  .title-banner {
+   width: 40%;
+    position: absolute;
+    top: 200px;
+    left: 5%;
+    height: 50vh;
+  }
+  
+  .title-banner .top-title {
+    height: max-content;
+    position: relative;
+    z-index: 2;
+    margin-top: -136px;
+    margin-left: 7px;
+    margin-bottom: 15px;
+    font-size: 21px;
+    line-height: 35px;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    color: #fff;
+    width: 200px;
+  }
+  
+  .title-bottom-paragraph {
+    font-size: 17px;
+    width: 329px;
+    margin-top: 2px;
+    margin-left: 7px;
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: hsla(0, 0%, 100%, 0.7);
+  }
+  
+  .title-banner .Free-quote-button {
+    color: #fff;
+    text-decoration: none;
+    padding: 19px 10px;
+    margin-left: -1px;
+    display: inline;
+    width: min-content;
+    border-radius: 0px;
+    background-color: #e47312;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .hamburger-line {
+    display: block;
+    left: unset;
+    top: 50%;
+    right: 0;
+    width: 30px;
+    cursor: pointer;
+}  
+  /* part2 */
+  .container2{
+    margin-top: 123%;
+  }
+    .w-dyn-list {
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.service-content {
+    width: 104%;
+}
+.service-top-title {
+    font-size: 23px;
+    line-height: 50px;
+    font-weight: 600;
+    margin-left: -5%;
+    z-index: 1;
+}
+.top-title-absolute {
+   display: none;
+}
+.view-service-icon {
+    font-size: 12px;
+    top: 1%;
+    left: 1%;
+}
+.top-title-wrapper {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 50px;
+    align-items:flex-start;
+    margin-left: -11%;
+    margin-top: 15%;
+}
+/* part3 */
+.totalarea {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+.title {
+    height: max-content;
+    position: relative;
+    z-index: 2;
+    margin-top: 24px;
+    margin-bottom: 15px;
+    font-size: 26px;
+    line-height: 60px;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    color: black;
+    margin-left: -31%;
+}
+.text {
+    font-size: 18px;
+    color: #919197;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-left: -6%;
+    text-align: justify;
+}
+.about {
+  display: none;
+}
+.bottombutton{
+  margin-left: -6%;
+}
+/* part4 */
+.width {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: space-around;
+    margin-left: 4%;
+}
+.numtext1 {
+    width: 90%;
+    color: #919197;
+}
+/* part5 */
+.section-gray {
+  background-color: #f7f8fc;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+.container3 {
+    height: 2200px;
+}
+.prof-top-title-absolute{
+  display: none;
+}
+.top-title-abosolute-project{
+  display: none;
+}
+.our-work{
+  font-size: 27px;
+}
+.our_work-top_title{
+  display: flex;
+  flex-direction: column;
+  margin-left: -52%;
+}
+.our-work-bottom-title {
+    text-decoration: none;
+    color: #919197;
+    font-weight: 500;
+    margin-right: 2%;
+    text-transform: uppercase;
+}
+.w-dyn-items {
+  display: flex;
+  flex-direction: column;
+    width: 303%;
+    padding-left: 0%;
+    margin-top: -20%;
+    gap: 6px;
+}
+.project-overlay {
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    height: 323px;
+    width: 360px;
+    justify-content: center;
+    top: 23px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+    opacity: 0;
+}
+.testimonial-absolute{
+  display: none;
+}
+/* part6 */
+.section-5 {
+    padding-top: 1%;
+    padding-bottom: 5%;
+    background-color: #e47312;
+    background-image: linear-gradient(72deg, #e47312, rgba(255, 99, 97, 0.78)), url(https://nuuk-e3eaa.firebaseapp.com/assets/img/banner-2.jpg);
+    background-position: 0px 0px, 50% 50%;
+    background-repeat: repeat, no-repeat;
+    background-attachment: scroll, fixed;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 34%;
+}
+.header {
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: -5px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-align: left;
+    margin-left: 2%;
+}
+.para {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: 0px;
+    padding-bottom: 25px;
+    text-align: left;
+    margin-left: 2%;
+}
+/* part7 */
+.section6 {
+    padding-top: 6%;
+    background-color: #f7f8fc;
+    margin-left: 0%;
+    margin-right: 0%;
+    height: 3800px;
+}
+.prof-row {
+    display: flex;
+    flex-direction: column;
+}
+.Prof-top-title {
+    text-transform: uppercase;
+    margin-left: -21%;
+    font-size: 32px;
+    font-weight: 550;
+    z-index: 1;
+}
+.prof-top-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4%;
+}
+.Prof-top-title-bottom {
+    text-decoration: none;
+    color: #bdbdc9;
+    font-size: small;
+    margin-right: 70%;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+.team-wrapper {
+    width: 102%;
+}
+.team-photo {
+    min-height: 431px;
+}
+.team-photo2 {
+    min-height: 431px;
+}
+.team-photo3 {
+    min-height: 431px;
+}
+.team-photo4 {
+    min-height: 431px;
+}
+.team-social-vertical {
+   
+    left: 85%;
+    position: relative;
+    left: -101%;
+    right: 0%;
+    bottom: -26.3%;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #e47312;
+}
+.team-social-vertical-pos{
+  margin-top: -439px;
+}
+.prof-row {
+    display: flex;
+    flex-direction: column;
+    gap: 144px;
+}
+.container5{
+  height: 2397px;
+}
+.news-title-absolute{
+  display: none;
+}
+/* ---------------------------- */
+.testimonial-container {
+    height: fit-content;
+    margin-top: 175px;
+    height: 140vh;
+}
+  .testimonial-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .testimonial-col-1 {
+    width: fit-content;
+    text-align: left;
+    padding-left: 8%;
+}
+  
+  .testimonial-top-title {
+    position: relative;
+    z-index: 2;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 45px;
+    font-weight: 550;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: -2%;
+  }
+  
+  .testimonial-absolute {
+    position: absolute;
+    top: 675%;
+    left: 7%;
+    z-index: 1;
+    color: rgba(241, 241, 247, 0.8);
+    font-size: 100px;
+    letter-spacing: 11px;
+    text-transform: uppercase;
+  }
+  #p {
+    margin-bottom: 10px;
+    font-family: Dosis, sans-serif;
+    color: #919197;
+    font-size: 17px;
+    line-height: 25px;
+    padding-bottom: 10%;
+  }
+  
+  .testimonial-bottom-title {
+    text-decoration: none;
+    color: #919197;
+    font-weight: 500;
+  }
+  
+  .testimonial-bottom-title:hover {
+    text-decoration: underline 2px #e47312;
+  }
+  
+  .testimonial-photo {
+    position: relative;
+  
+    display: flex;
+    width: 60px;
+    height: 60px;
+    margin: -115px auto 25px;
+  
+    justify-content: center;
+  
+    align-items: stretch;
+    border-radius: 100%;
+    background-image: linear-gradient(8deg, #ff6361, #e47312);
+    opacity: 1;
+    color: #fff;
+    font-size: 80px;
+    line-height: 80px;
+  }
+  
+  .text-block-2 {
+    padding-top: 12px;
+  }
+  
+  .testimonial-wrapper {
+    position: relative;
+    display: block;
+    width: 230%;
+    margin: 10px auto 61px;
+    padding: 80px 30px 26px;
+    background-color: #fff;
+    text-align: center;
+    margin-left: -25%;
+}
+  
+  .testi-title {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .job-title {
+    margin-bottom: 0px;
+    color: #bdbdc9;
+    font-size: 16px;
+  }
+  .testimonial-paragraph {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    color: #919197;
+    width: fit-content;
+  }
+  
+  .t-col1 {
+    width: 30%;
+    margin-left: 15%;
+    margin-right: 0%;
+    position: relative;
+    top: 32px;
+}
+.t-col2 {
+    width: 30%;
+    float: right;
+    margin-right: 55%;
+    position: relative;
+    top: 14px;
+}
+  .testimonial-col-2 {
+    height: fit-content;
+  }
+/* part8 */
+.section7 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .news-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8%;
+    padding-bottom: 0%;
+    flex-direction: column;
+}
+  
+.news-top-title {
+    text-transform: uppercase;
+    margin-left: -19%;
+    font-size: 40px;
+    font-weight: 550;
+    z-index: 5;
+}
+  
+  .news-title-absolute {
+    position: absolute; 
+    left: 3%;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: rgba(241, 241, 247, 0.4);
+    font-size: 120px;
+    letter-spacing: 11px;
+    margin-top: 30.5px;
+  }
+  .news-title-bottom {
+    text-decoration: none;
+    color: #bdbdc9;
+    font-size: 15px;
+    margin-right: 70%;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+  
+  .blog-wrapper {
+    text-decoration: none;
+  }
+  
+  .news-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .news-col {
+    width: 30%;
+    margin-top: -40px;
+  }
+  
+  #blog-img {
+    width: 334%;
+}
+  
+.meta-tag {
+    position: relative;
+    left: 266.5%;
+    top: 110px;
+    bottom: auto;
+}
+  .meta-number {
+    display: flex;
+    width: 70px;
+    height: 70px;
+  
+    justify-content: center;
+  
+    align-items: center;
+    background-image: linear-gradient(45deg, #ff6361, #e47312);
+    color: #fff;
+    font-size: 26px;
+    font-weight: 400;
+  }
+  
+  .meta-month {
+    display: flex;
+    width: 70px;
+    height: 40px;
+  
+    justify-content: center;
+  
+    align-items: center;
+    background-color: #fff;
+    color: #9d9da5;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .blog-content {
+    width: 251%;
+    margin-top: -5px;
+    padding: 25px 56px 25px 30px;
+    background-color: #e47312;
+    background-image: linear-gradient(158deg, #e47312, #ff6361);
+}
+  .blog-top-title {
+    color: #fff;
+    margin-right: 60px;
+    text-transform: uppercase;
+    font-weight: 550;
+    font-size: 19px;
+  }
+  .paragraph-white{
+    color: hsla(0, 0%, 100%, 0.7);
+    font-size: 15px;
+  }
+  
+  .blog-bottom {
+    margin-top: 10%;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: underline 1px #919198;
+  }
+  
+  .blog-bottom:hover {
+    text-decoration: underline 2px #fff;
+  }
+  
+  .img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  /* part9 */
+  .section-logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 448px;
+    margin-top: 8%;
+    margin-left: -2%;
+    margin-right: -2%;
+    padding-top: 3%;
+    border-radius: 0px;
+    padding-bottom: 3%;
+    background-image: linear-gradient(56deg, #e47312, #ff6361);
+    flex-direction: column;
+}
+  /* ______________________________________ */
+  .footer {
+    border-top: 1px solid #2f3038;
+    background-color: #0a1229;
+    width: fit-content;
+    margin-right: -2%;
+    margin-left: -2%;
+    padding-top: 70px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: column;
+}
+  
+  .footer-col1 {
+    width: 110%;
+  }
+  .footer-col2 {
+    width: 110%;
+  }
+  .footer-col3 {
+    width: 110%;
+  }
+  
+  .with-line {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .line {
+    position: relative;
+    left: 0%;
+    top: 0%;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 1px;
+    background-color: #ff6361;
+  }
+  
+  .footer-top-title {
+    margin-right: 25px;
+    flex: 0 0 auto;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+  
+  .paragraph-white-footer {
+    color: #fff;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  
+  .footer-nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 550;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .w-dyn-list-footer {
+    height: 30vh;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  .item {
+    margin-top: 5%;
+    font-weight: 550;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+    font-weight: 550;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+  }
+  
+  .footer-nav-link:hover {
+    text-decoration: underline 2px #fff;
+  }
+  
+  .info-img {
+    position: relative;
+    left: -30px;
+    top: 32px;
+    width: 20px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+  }
+  
+  .footer-item {
+    text-decoration: none;
+    color: #fff;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+  .phone-text-footer {
+    margin-top: 15;
+    margin-bottom: 1%;
+    margin-left: 3%;
+    color: #fff;
+    font-weight: 550;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  
+  .paragraph-white-foot {
+    color: hsla(0, 0%, 100%, 0.7);
+    margin-top: 0%;
+    margin-bottom: 2%;
+    margin-left: 3%;
+    font-size: 15px;
+  }
+  
+  .footer-infochild {
+    margin-left: 10%;
+  }
+  
+  .footer-logo {
+    height: 25vh;
+  }
+  
+  .brand-logo-footer {
+    display: flex;
+    height: 80px;
+    width: 40px;
+    padding-right: 35px;
+    padding-left: 35px;
+    justify-content: center;
+    margin-top: 10%;
+    align-items: center;
+    background-color: #e47312;
+ 
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- part1 -->
+  <div class="page-content">
+    <div class="overflow-hidden">
+      <div class="banner">
+        <div class="navigation">
+          <a href="./index.html" class="brand-logo">
+            <img
+              src="https://nuuk-e3eaa.firebaseapp.com/assets/img/logo-white.png"
+              alt="Nuuk-logo"
+              width="90"
+            />
+          </a>
+          <nav class="nav-menu">
+            <a href="./index.html" class="nav-link">
+              <div class="nav-text" style="color: #e47312;">home</div>
+            </a>
+            <a href="#" class="nav-link">
+              <div class="nav-text">projects</div>
+            </a>
+            <a href="#" class="nav-link">
+              <div class="nav-text">about</div>
+            </a>
+            <a href="#" class="nav-link">
+              <div class="nav-text">services</div>
+            </a>
+            <a href="#" class="nav-link">
+              <div class="nav-text">blog</div>
+            </a>
+            <div class="dropdown" id="dropdown-item">
+              <div class="dropdown-toggle">
+                <div class="dropdown-icon"></div>
+                <div class="nav-text">Pages</div>
+                <img
+                  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/sort-down.svg"
+                  alt="-"
+                  width="8"
+                  class="arrow-image"
+                />
+              </div>
+              <nav class="dropdown-list">
+                <a href="#" class="dropdown-link">404 error</a>
+                <a href="#" class="dropdown-link">Protected Pages</a>
+                <a href="#" class="dropdown-link">style guide</a>
+                <a href="#" class="dropdown-link">licensing</a>
+              </nav>
+            </div>
+            <div class="info-wrapper-free-quote">
+              <div class="text-block">Get Free Quote</div>
+            </div>
+          </nav>
+          <div class="menu-button">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+          </div>
+          <div class="features-wrapper">
+            <div class="infos-flex">
+              <div class="info-child">
+                <img
+                  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/phone.svg"
+                  alt="-"
+                  class="info-image"
+                />
+                <h1 class="phone-text">Phone Number <br /></h1>
+                <p class="paragraph-white">1-800-506-266 <br /></p>
+                <p class="paragraph-white">1-100-777-800 <br /></p>
+              </div>
+              <div class="info-child">
+                <img
+                  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/mail.svg"
+                  alt="-"
+                  class="info-image"
+                />
+                <h1 class="phone-text">Contact <br /></h1>
+                <p class="paragraph-white">contact@nuuk.com <br /></p>
+                <p class="paragraph-white">info@nuuk.com<br /></p>
+              </div>
+              <div class="info-child">
+                <img
+                  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/clock.svg"
+                  alt="-"
+                  class="info-image"
+                />
+                <h1 class="phone-text">Opening Times <br /></h1>
+                <p class="paragraph-white">
+                  Mon - Sat 8:00 - 17:30, Sunday - Closed <br />
+                </p>
+                <a href="#" class="map-text">
+                  <div>Find on map</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="social-vertical">
+            <a href="#" class="social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/facebook-logo.png"
+                alt="facebook-logo"
+                width="16"
+              />
+            </a>
+            <a href="#" class="social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/twitter-logo.png"
+                alt="twitter-logo"
+                width="16"
+              />
+            </a>
+            <a href="#" class="social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/linkedin-logo.png"
+                alt="linkedin-logo"
+                width="16"
+              />
+            </a>
+            <a href="#" class="social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/instagram-logo.png"
+                alt="instagram-logo"
+                width="16"
+              />
+            </a>
+          </div>
+          <div class="title-banner">
+            <div class="w-row">
+              <div class="w-col">
+                <div style="margin-top: 25px;">
+                  <h1 class="top-title">
+                    YOU DREAM. WE CREATE.
+                    <strong><br /></strong>
+                  </h1>
+                  <p class="title-bottom-paragraph">
+                    We turn your ideas to reality, we don't stop until you're
+                    satisfied.
+                  </p>
+                  <div class="top margin-half flex">
+                    <a href="#" class="Free-quote-button">Get Free Quote</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- part2  -->
+      <div class="section2">
+        <div class="container2">
+          <div class="top-title-wrapper">
+            <h1 class="service-top-title">
+              OUR SPECIALIZATION
+              <strong>
+                <br />
+              </strong>
+            </h1>
+            <h1 class="top-title-absolute">services</h1>
+            <a href="#" class="view-service-icon">
+              <div>View all services</div>
+            </a>
+          </div>
+          <div>
+            <div class="w-dyn-list">
+              <div class="service-content">
+                <img
+                  width="60"
+                  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/brickwall.svg"
+                  alt="features-icon"
+                />
+                <h1 class="service-title">Renovation</h1>
+                <p class="paratext">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                  odio quis illum quasi tenetur maiores, iusto animi accusamus
+                  veniam totam esse, blanditiis ea quae ab fuga non nisi,
+                  corporis minima!
+                </p>
+                <a href="#" class="service-bottom-title"
+                  ><div>Learn More</div></a
+                >
+              </div>
+              <div class="service-content">
+                <img
+                  width="60"
+                  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/set-square.svg"
+                  alt="features-icon"
+                />
+                <h1 class="service-title">Architecture</h1>
+                <p class="paratext">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                  odio quis illum quasi tenetur maiores, iusto animi accusamus
+                  veniam totam esse, blanditiis ea quae ab fuga non nisi,
+                  corporis minima!
+                </p>
+                <a href="#" class="service-bottom-title"
+                  ><div>Learn More</div></a
+                >
+              </div>
+              <div class="service-content">
+                <img
+                  width="60"
+                  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/toolbox.svg"
+                  alt="features-icon"
+                />
+                <h1 class="service-title">Construction</h1>
+                <p class="paratext">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                  odio quis illum quasi tenetur maiores, iusto animi accusamus
+                  veniam totam esse, blanditiis ea quae ab fuga non nisi,
+                  corporis minima!
+                </p>
+                <a href="#" class="service-bottom-title"
+                  ><div>Learn More</div></a
+                >
+              </div>
+              <div class="service-content">
+                <img
+                  width="60"
+                  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/paint-roller.svg"
+                  alt="features-icon"
+                />
+                <h1 class="service-title">Financial Results</h1>
+                <p class="paratext">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                  odio quis illum quasi tenetur maiores, iusto animi accusamus
+                  veniam totam esse, blanditiis ea quae ab fuga non nisi,
+                  corporis minima!
+                </p>
+                <a href="#" class="service-bottom-title"
+                  ><div>Learn More</div></a
+                >
+              </div>
+            </div>
+          </div>
+        </div> 
+  <!-- part3-->
+  <div class="section-3">
+    <div class="totalarea">
+      <div class="image">
+        <div>
+          <img
+            src="https://nuuk-e3eaa.firebaseapp.com/assets/img/serv-1.jpg"
+            width="750"
+            class="img"
+          />
+        </div>
+      </div>
+      <div class="content">
+        <div class="position">
+          <div class="place">
+            <h1 class="title">
+              Who we are
+              <strong><br /></strong>
+            </h1>
+            <h1 class="about">About</h1>
+          </div>
+          <div>
+            <p class="text">
+              Based on collective work and shared knowledge, Nuuk aims
+              to favor dialogue and debate, to transform individual
+              knowledge into increased creative potential.
+              <br />
+              <br />
+              Our studio is a architecture practice based in NY and
+              Paris. Today, it includes 150 architects, urban planners,
+              landscape and interior designers of 25 different
+              nationalities. The company principle of
+              Architecture-Studio is the collective conception. From the
+              very beginning, the practice has believed in the virtues
+              of exchange, crossing ideas, common effort, shred
+              knowledge.
+              <a href="#"
+                ><strong><br /></strong
+              ></a>
+            </p>
+          </div>
+          <div class="bottombutton">
+            <a href="#"><div>Meet The team</div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- part4 -->
+  <div class="section-4">
+    <div class="width">
+      <div class="numtext1">
+        <div class="numtext2">170</div>
+        <p>Employer with over 10 years of experience</p>
+      </div>
+      <div class="numtext1">
+        <div class="numtext2">10</div>
+        <p>Years experience in construction industries</p>
+      </div>
+      <div class="numtext1">
+        <div class="numtext2">690</div>
+        <p>Residential premises completed in 2019</p>
+      </div>
+      <div class="numtext1">
+        <div class="numtext2">7.1</div>
+        <p>Milion dollar value on investments</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- part5 -->
+<div class="section-gray"><div class="container3">
+  <div class="ourwork-title">
+    <div class="our_work-top_title">
+      <h1 class="our-work">
+        Our Work
+        <strong><br /></strong>
+      </h1>
+      <h1 class="top-title-abosolute-project">projects</h1>
+      <a href="#" class="our-work-bottom-title"
+        ><div>View all works</div></a
+      >
+    </div>
+  </div>
+
+<div class="w-dyn-list">
+  <div class="w-dyn-items">
+    <div class="project-wrapper">
+      <a href="#" class="project-content-id"
+        ><div class="project-content">
+          <img
+            src="https://nuuk-e3eaa.firebaseapp.com/assets/img/p-1.jpg"
+            alt="#"
+            class="project-img"
+          />
+          <div class="project-overlay">
+            <div class="project-circle">
+              <p class="view">View Project</p>
+            </div>
+          </div>
+        </div></a
+      >
+    </div>
+    <div class="project-wrapper">
+      <a href="#" class="project-content-id"
+        ><div class="project-content">
+          <img
+            src="https://nuuk-e3eaa.firebaseapp.com/assets/img/p-4.jpg"
+            alt="#"
+            class="project-img"
+          />
+          <div class="project-overlay">
+            <div class="project-circle">
+              <div>View Project</div>
+            </div>
+          </div>
+        </div></a
+      >
+    </div>
+    <div class="project-wrapper">
+      <a href="#" class="project-content-id"
+        ><div class="project-content">
+          <img
+            src="https://nuuk-e3eaa.firebaseapp.com/assets/img/p-3.jpg"
+            alt="#"
+            class="project-img"
+          />
+          <div class="project-overlay">
+            <div class="project-circle">
+              <div>View Project</div>
+            </div>
+          </div>
+        </div></a
+      >
+    </div>
+    <div class="project-wrapper">
+      <a href="#" class="project-content-id"
+        ><div class="project-content">
+          <img
+            src="https://nuuk-e3eaa.firebaseapp.com/assets/img/p-6.jpg"
+            alt="#"
+            class="project-img"
+          />
+          <div class="project-overlay">
+            <div class="project-circle">
+              <div>View Project</div>
+            </div>
+          </div>
+        </div></a
+      >
+    </div>
+    <div class="project-wrapper">
+      <a href="#" class="project-content-id"
+        ><div class="project-content">
+          <img
+            src="https://nuuk-e3eaa.firebaseapp.com/assets/img/p-5.jpg"
+            alt="#"
+            class="project-img"
+          />
+          <div class="project-overlay">
+            <div class="project-circle">
+              <div>View Project</div>
+            </div>
+          </div>
+        </div></a
+      >
+    </div>
+    <div class="project-wrapper">
+      <a href="#" class="project-content-id"
+        ><div class="project-content">
+          <img
+            src="https://nuuk-e3eaa.firebaseapp.com/assets/img/p-2.jpg"
+            alt="#"
+            class="project-img"
+          />
+          <div class="project-overlay">
+            <div class="project-circle">
+              <div>View Project</div>
+            </div>
+          </div>
+        </div></a
+      >
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div></div>
+<!-- part6 -->
+<div class="section-5">
+  <div class="textarea">
+      <h1 class="header">
+        LET'S MAKE SOMETHING GREAT TOGETHER
+      </h1>
+      <p class="para">
+        Get in touch with us and send some basic info for a quick quote.
+      </p>
+      <div>
+        <a href="#" class="freequote"
+          ><div>Get Free Quote</div></a
+        >
+      </div>
+  </div>
+</div>
+<!-- part7 -->
+<div class="section6">
+  <div class="container5">
+    <div>
+      <div class="prof-top-title-wrapper">
+        <h1 class="Prof-top-title">
+          PROFESSIONALS <strong><br /></strong>
+        </h1>
+        <h1 class="prof-top-title-absolute">team</h1>
+        <a href="#" class="Prof-top-title-bottom"><div>About us</div></a>
+      </div>
+    </div>
+    <div>
+      <div class="prof-row">
+        <div class="team-wrapper">
+          <div class="team-photo"></div>
+          <div class="team-content">
+            <h1 class="service-team-title">PHILIP BROWER <br /></h1>
+            <p class="job-title">Managing Director <br /></p>
+          </div>
+        </div>
+        <div class="team-social-vertical-pos">  
+          <div class="team-social-vertical">
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/facebook-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/twitter-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/linkedin-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="team-wrapper">
+          <div class="team-photo2"></div>
+          <div class="team-content">
+            <h1 class="service-team-title">JOHN WICK <br /></h1>
+            <p class="job-title">Managing Director <br /></p>
+          </div>
+        </div>
+        <div class="team-social-vertical-pos">  
+          <div class="team-social-vertical">
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/facebook-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/twitter-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/linkedin-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="team-wrapper">
+          <div class="team-photo3"></div>
+          <div class="team-content">
+            <h1 class="service-team-title">JIMMY MCGILL <br /></h1>
+            <p class="job-title">Managing Director <br /></p>
+          </div>
+        </div>
+        <div class="team-social-vertical-pos">  
+          <div class="team-social-vertical">
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/facebook-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/twitter-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/linkedin-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="team-wrapper">
+          <div class="team-photo4"></div>
+          <div class="team-content">
+            <h1 class="service-team-title">SARA CONNOR <br /></h1>
+            <p class="job-title">Managing Director <br /></p>
+          </div>
+        </div>
+        <div class="team-social-vertical-pos">  
+          <div class="team-social-vertical">
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/facebook-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/twitter-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+            <a href="#" class="team-social-icon">
+              <img
+                src="https://nuuk-e3eaa.firebaseapp.com/assets/img/linkedin-logo.png"
+                alt=""
+                width="16"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-container">
+      <div class="testimonial-row">
+        <div class="testimonial-col-1">
+          <div class="testimonial-top-title-wrapper">
+            <h1 class="testimonial-top-title">
+              TESTIMONIALS <strong><br /></strong>
+            </h1>
+            <h1 class="testimonial-absolute">clients</h1>
+          </div>
+          <div>
+            <p id="p">
+              Aenean ut eros et nisl sagittis vestibulum. Fusce neque.
+              <br />
+              Praesent blandit laoreet nibh. Morbi mollis tellus ac
+              sapien.
+              <a href="#"
+                ><strong><br /></strong
+              ></a>
+            </p>
+          </div>
+          <div class="testimonial-bottom">
+            <a href="#" class="testimonial-bottom-title"
+              ><div>Our Services</div></a
+            >
+          </div>
+        </div>
+        <div class="testimonial-col-2">
+          <div class="test-margin-device">
+            <div class="t-col1">
+              <div class="testimonial-wrapper">
+                <div class="testimonial-photo">
+                  <div class="text-block-2">"</div>
+                </div>
+                <h4 class="testi-title">SARA WILLIAM</h4>
+                <div class="job-title">CEO at Webflow</div>
+                <p class="testimonial-paragraph">
+                  "Duis cursus, mi quis viverra ornare, eros dolor
+                  interdum nulla, ut commodo diam libero vitae erat.
+                  Aenean faucibus nibh et justo cursus id rutrum lorem
+                  imperdiet"
+                </p>
+              </div>
+              <div class="testimonial-wrapper">
+                <div class="testimonial-photo">
+                  <div class="text-block-2">"</div>
+                </div>
+                <h4 class="testi-title">JOHN JUNIOR</h4>
+                <div class="job-title">Menager at Complexx</div>
+                <p class="testimonial-paragraph">
+                  "Donec orci lectus, aliquam ut, faucibus non, euismod
+                  id, nulla. Cras varius. Etiam sit amet orci eget eros
+                  faucibus tincidunt. Fusce a quam"
+                </p>
+              </div>
+            </div>
+            <div class="t-col2">
+              <div class="testimonial-wrapper">
+                <div class="testimonial-photo">
+                  <div class="text-block-2">"</div>
+                </div>
+                <h4 class="testi-title">RAVEN DURGAN</h4>
+                <div class="job-title">Architect at Group</div>
+                <p class="testimonial-paragraph">
+                  "Aliquam eu nunc. Cras dapibus. Vestibulum turpis sem,
+                  aliquet eget, lobortis pellentesque, rutrum eu, nisl"
+                </p>
+              </div>
+              <div class="testimonial-wrapper">
+                <div class="testimonial-photo">
+                  <div class="text-block-2">"</div>
+                </div>
+                <h4 class="testi-title">SAMI TYPO</h4>
+                <div class="job-title">SEO at Balfin</div>
+                <p class="testimonial-paragraph">
+                  "Vestibulum fringilla pede sit amet augue. Morbi ac
+                  felis. Ut a nisl id ante tempus hendrerit"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- part8    -->
+<div class="section7">
+  <div class="latest-news-container">
+    <div class="news-title-wrapper">
+      <h1 class="news-top-title">
+        latest news <strong><br /></strong>
+      </h1>
+      <h1 class="news-title-absolute">Blog</h1>
+      <a href="#" class="news-title-bottom"><div>View Blog</div></a>
+    </div>
+    <div class="news-row">
+      <div class="news-col">
+        <a href="#" class="blog-wrapper">
+          <div class="blog-image">
+            <div class="meta-tag">
+              <div class="meta-number"><div>17</div></div>
+              <div class="meta-month"><div>Oct</div></div>
+            </div>
+            <img
+              src="https://nuuk-e3eaa.firebaseapp.com/assets/img/port-1.jpg"
+              alt=""
+              id="blog-img"
+            />
+          </div>
+          <div class="blog-content">
+            <h1 class="blog-top-title">Blogpost1</h1>
+            <p class="paragraph-white">
+              Service and providing potential clients and customers with
+              testimonials is one of the best ways to market.
+            </p>
+            <div class="blog-bottom"><div>Read More</div></div>
+          </div>
+        </a>
+      </div>
+      <div class="news-col">
+        <a href="#" class="blog-wrapper">
+          <div class="blog-image">
+            <div class="meta-tag">
+              <div class="meta-number"><div>11</div></div>
+              <div class="meta-month"><div>Dec</div></div>
+            </div>
+            <img
+              src="https://nuuk-e3eaa.firebaseapp.com/assets/img/port-2.jpg"
+              alt=""
+              id="blog-img"
+            />
+          </div>
+          <div class="blog-content">
+            <h1 class="blog-top-title">Blogpost2</h1>
+            <p class="paragraph-white">
+              Service and providing potential clients and customers with
+              testimonials is one of the best ways to market.
+            </p>
+            <div class="blog-bottom"><div>Read More</div></div>
+          </div>
+        </a>
+      </div>
+      <div class="news-col">
+        <a href="#" class="blog-wrapper">
+          <div class="blog-image">
+            <div class="meta-tag">
+              <div class="meta-number"><div>27</div></div>
+              <div class="meta-month"><div>Oct</div></div>
+            </div>
+            <img
+              src="https://nuuk-e3eaa.firebaseapp.com/assets/img/port-3.jpg"
+              alt=""
+              id="blog-img"
+            />
+          </div>
+          <div class="blog-content">
+            <h1 class="blog-top-title">Blogpost3</h1>
+            <p class="paragraph-white">
+              Service and providing potential clients and customers with
+              testimonials is one of the best ways to market.
+            </p>
+            <div class="blog-bottom"><div>Read More</div></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div> 
+<!-- part9 -->
+<div class="section-logo">
+  <span style="color: #fff;font-size: 15px;line-height: 20px;word-spacing: 2px;">TRUSTED BY TOP COMPANIES</span>
+  <img style="height: 50px;width: 80px;"  src="https://nuuk-e3eaa.firebaseapp.com/assets/img/logo-1w.png" alt="logo1">
+  <img style="height: 50px;width: 80px;" src="https://nuuk-e3eaa.firebaseapp.com/assets/img/logo-2w.png" alt="logo2">
+  <img style="height: 50px;width: 80px;" src="https://nuuk-e3eaa.firebaseapp.com/assets/img/logo-3w.png" alt="logo3">
+  <img style="height: 50px;width: 80px;" src="https://nuuk-e3eaa.firebaseapp.com/assets/img/logo-4w.png" alt="logo4">
+  <img style="height: 50px;width: 80px;" src="https://nuuk-e3eaa.firebaseapp.com/assets/img/logo-5w.png" alt="logo5">
+   </div>
+ </div>
+ <div class="footer">
+   <div class="footer-wrapper">
+     <div class="footer-row">
+       <div class="footer-col1">
+         <div class="footer-column">
+           <div class="with-line">
+             <h1 class="footer-top-title">
+               About Nuuk <strong><br /></strong>
+             </h1>
+             <div class="line"></div>
+           </div>
+           <p class="paragraph-white-footer">
+             Based on collective work and shared knowledge, Nuuk aims to
+             favor dialogue and debate, to transform individual knowledge
+             into increased creative potential.
+             <a href="#"
+               ><strong><br /></strong
+             ></a>
+           </p>
+           <a href="#" class="footer-nav-link"><div>Find on Map</div></a>
+         </div>
+       </div>
+       <div class="footer-col2">
+         <div class="footer-column">
+           <div class="with-line">
+             <h1 class="footer-top-title">
+               Services <strong><br /></strong>
+             </h1>
+             <div class="line"></div>
+           </div>
+           <div>
+             <div class="w-dyn-list-footer">
+               <div class="w-dyn-item">
+                 <div class="item">
+                   <a href="#" class="footer-item"
+                     ><div>Financial Results</div></a
+                   >
+                 </div>
+                 <div class="item">
+                   <a href="#" class="footer-item"
+                     ><div>Construction</div></a
+                   >
+                 </div>
+                 <div class="item">
+                   <a href="#" class="footer-item"
+                     ><div>Architecture</div></a
+                   >
+                 </div>
+                 <div class="item">
+                   <a href="#" class="footer-item"
+                     ><div>Renovation</div></a
+                   >
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="footer-col3">
+         <div>
+           <div class="footer-column">
+             <div class="with-line">
+               <h1 class="footer-top-title">
+                 Contact Us <strong><br /></strong>
+               </h1>
+               <div class="line"></div>
+             </div>
+             <div class="footer-infochild">
+               <img
+                 src="https://nuuk-e3eaa.firebaseapp.com/assets/img/phone.svg"
+                 class="info-img"
+                 alt=""
+               />
+               <div>
+                 <h1 class="phone-text-footer">PHONE NUMBER <br /></h1>
+                 <p class="paragraph-white-foot">1-800-506-266 <br /></p>
+               </div>
+             </div>
+             <div class="footer-infochild">
+               <img
+                 src="https://nuuk-e3eaa.firebaseapp.com/assets/img/clock.svg"
+                 class="info-img"
+                 alt=""
+               />
+               <div>
+                 <h1 class="phone-text-footer">OPENING TIMES <br /></h1>
+                 <p class="paragraph-white-foot">
+                   Mon - Sat 8:00 - 17:30, Sunday - Closed <br />
+                 </p>
+               </div>
+             </div>
+             <div class="footer-infochild">
+               <img
+                 src="https://nuuk-e3eaa.firebaseapp.com/assets/img/mail.svg"
+                 class="info-img"
+                 alt=""
+               />
+               <div>
+                 <h1 class="phone-text-footer">CONTACT <br /></h1>
+                 <p class="paragraph-white-foot">
+                   contact@nuuk.com <br />
+                 </p>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="footer-logo">
+       <div class="footer-row-flex">
+         <div class="footer-col-flex">
+           <a href="#" class="brand-logo-footer">
+             <img
+               src="https://nuuk-e3eaa.firebaseapp.com/assets/img/logo-white.png"
+               width="90"
+               alt=""
+             />
+           </a>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</body>
+</html>
